@@ -7,7 +7,7 @@ on post-fs-data
     symlink /dev/block/mmcblk0p4 /dev/block/param
 
 on boot
-    setprop ro.radio.noril yes
+    setprop ro.radio.noril no
 
 # icd
 service icd /system/bin/icd
@@ -29,10 +29,10 @@ service dmb /system/bin/dmbserver
     group radio inet misc audio camera graphics net_bt net_bt_admin sdcard_rw
 
 # TVout
-#service TvoutService_C /system/bin/bintvoutservice
-#     class main
-#     user system
-#     group graphics
+service TvoutService_C /system/bin/bintvoutservice
+class main
+user system
+group graphics
 
 service SecTVOutService /system/bin/TVOutDummy
     class main
